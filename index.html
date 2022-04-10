@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Клавіатура</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .wrap{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+        }
+        .container{
+            width: 900px;
+            height: 350px;
+            background-color: #333;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        .FirstStroke{
+            display: flex;
+            justify-content: space-around;
+            margin: 10px 0 0 0;
+        }
+        .btnEsc{
+            width: 55px;
+            height: 25px;
+            color: white;
+            font-family: monospace;
+            background-color: #999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+        }
+        .btnF{
+            width: 55px;
+            height: 25px;
+            color: white;
+            font-family: monospace;
+            background-color: #999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+        }
+        .SecondStroke{
+            display: flex;
+            justify-content: space-around;
+            margin:10px 0 0 0;
+        }
+        .btnE{
+            width: 55px;
+            height: 50px;
+            color: white;
+            font-family: monospace;
+            background-color: #999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+        }
+        .btn{
+            width: 50px;
+            height: 50px;
+            color: white;
+            font-family: monospace;
+            background-color: #999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+        }
+        .btnDelete{
+            width: 75px;
+            height: 50px;
+            background-color: #999;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: monospace;
+            color: white;
+        }
+        .ThirdStroke{
+            display: flex;
+            justify-content: space-around;
+            margin: 10px 0 0 0;
+        }
+        .btnTab{
+            width: 75px;
+            height: 50px;
+            background-color: #999;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+        .FourthStroke{
+            display: flex;
+            margin: 10px 0 0 0;
+            justify-content: space-around;
+        }
+        .btnCap{
+            width: 95px;
+            height: 50px;
+            background-color: #999;
+            border-radius: 10px;
+            display: flex;
+            justify-content:center;
+            color: white;
+        }
+        .light{
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: white;
+            margin: 10px 0 0 0 ;
+        }
+        .btnEnter{
+            width: 85px;
+            height: 50px;
+            background-color: #999;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+        .FifthStroke{
+            display: flex;
+            margin: 10px 0 0 0;
+            justify-content: space-around;
+        }
+        .btnShift{
+            width: 120px;
+            height: 50px;
+            background-color: #999;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+        .SixthStroke{
+            display: flex;
+            justify-content: space-around;
+            margin: 10px 0 0 0;
+        }
+        .btnCommand{
+            width: 60px;
+            height: 50px;
+            background-color: #999;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 12px;
+        }
+        .btnSpace{
+            width: 300px;
+            height: 50px;
+            background-color: #999;
+            border-radius: 10px;
+        }
+        .btnLeft{
+            width: 45px;
+            height: 50px;
+            background-color: #999;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items:center;
+            margin: 0 10px 0 0;
+        }
+        .btnTop{
+            width: 45px;
+            height: 20px;
+            background-color: #999;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items:center;
+        }
+        .btnRight{
+            width: 45px;
+            height: 50px;
+            background-color: #999;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items:center;
+            margin: 0 0 0 10px;
+        }
+        .btnBottom{
+            width: 45px;
+            height: 20px;
+            background-color: #999;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items:center;
+            margin: 10px 0 0 0;
+        }
+        .buttonsWalk{
+            display: flex;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="container">
+            <div class="FirstStroke">
+                <div class="btnEsc" id="btnEsc">esc</div>
+                <div class="btnF">F1</div>
+                <div class="btnF">F2</div>
+                <div class="btnF">F3</div>
+                <div class="btnF">F4</div>
+                <div class="btnF">F5</div>
+                <div class="btnF">F6</div>
+                <div class="btnF">F7</div>
+                <div class="btnF">F8</div>
+                <div class="btnF">F9</div>
+                <div class="btnF">F10</div>
+                <div class="btnF">F11</div>
+                <div class="btnF">F12</div>
+            </div>
+            <div class="SecondStroke">
+                    <div class="btnE keyClick" id="btnEE">~ <br> `</div>
+                    <div class="btn keyClick" id="btn1">! <br>1</div>
+                    <div class="btn keyClick" id="btn2">@ <br>2</div>
+                    <div class="btn keyClick" id="btn3"># <br>3</div>
+                    <div class="btn keyClick" id="btn4">$<br>4</br></div>
+                    <div class="btn keyClick"id="btn5">%<br>5</div>
+                    <div class="btn keyClick" id="btn6">^<br>6</div>
+                    <div class="btn keyClick" id="btn7">& <br>7</div>
+                    <div class="btn keyClick" id="btn8">* <br> 8</div>
+                    <div class="btn keyClick" id="btn9">( <br> 9</div>
+                    <div class="btn keyClick" id="btn0">) <br> 0</div>
+                    <div class="btn keyClick" id="btnDiff">- </div>
+                    <div class="btn keyClick" id="btnRes">= <br> +</div>
+                    <div class="btnDelete keyClick" id="btnDelete">Delete</div>
+            </div>
+            <div class="ThirdStroke">
+                <div class="btnTab keyClick" id="btnTab">Tab</div>
+                <div class="btn keyClick" id="btnQ">G</div> 
+                <div class="btn keyClick" id="btnW">W</div>
+                <div class="btn keyClick" id="btnE">E</div>
+                <div class="btn keyClick" id="btnR">R</div>
+                <div class="btn keyClick" id="btnT">T</div>
+                <div class="btn keyClick" id="btnY">Y</div>
+                <div class="btn keyClick" id="btnU">U</div>
+                <div class="btn keyClick" id="btnI">I</div>
+                <div class="btn keyClick" id="btnO">O</div>
+                <div class="btn keyClick" id="btnP">P</div>
+                <div class="btn keyClick" id="btnAR">[ <br> {</div>
+                <div class="btn keyClick" id="btnAR2">]<br>}</div>
+            </div>
+            <div class="FourthStroke">
+                <div class="btnCap keyClick" id="btnCap">
+                    <div class="light" id="light"></div> <br> Caps lock
+                </div>
+                <div class="btn keyClick" id="btnA">A</div>
+                <div class="btn keyClick" id="btnS">S</div>
+                <div class="btn keyClick" id="btnD">D</div>
+                <div class="btn keyClick" id="btnF">F</div>
+                <div class="btn keyClick" id="btnG">G</div>
+                <div class="btn keyClick" id="btnH">H</div>
+                <div class="btn keyClick" id="btnJ">J</div>
+                <div class="btn keyClick" id="btnK">K</div>
+                <div class="btn keyClick" id="btnL">L</div>
+                <div class="btn keyClick" id="btnKK">; <br> ;</div>
+                <div class="btn keyClick" id="btnLL">" <br> '</div>
+                <div class="btnEnter keyClick" id="btnEnter">Enter</div>
+            </div>
+            <div class="FifthStroke">
+                <div class="btnShift keyClick" id="btnShift">Shift</div>
+                <div class="btn keyClick" id="btnZ">Z</div>
+                <div class="btn keyClick" id="btnX">X</div>
+                <div class="btn keyClick" id="btnC">C</div>
+                <div class="btn keyClick" id="btnV">V</div>
+                <div class="btn keyClick" id="btnB">B</div>
+                <div class="btn keyClick" id="btnN">N</div>
+                <div class="btn keyClick" id="btnM">M</div>
+                <div class="btn keyClick" id="btnArrow">< <br> ,</div>
+                <div class="btn keyClick" id="btnArrow2">> <br> .</div>
+                <div class="btn keyClick" id="btnSlash">/ <br> ?</div>
+                <div class="btnShift keyClick" id="btnShift2">Shift</div>
+            </div>
+            <div class="SixthStroke">
+                <div class="btn keyClick" id="btnFn">fn</div>
+                <div class="btn keyClick" id="btnCtrl">ctrl</div>
+                <div class="btn keyClick" id="btnAlt">option</div>
+                <div class="btnCommand keyClick" id="btnCommand">command</div>
+                <div class="btnSpace keyClick" id="btnSpace"></div>
+                <div class="btnCommand keyClick" id="btnCommand2">command</div>
+                <div class="btn keyClick" id="btnAlt2">option</div>
+                <div class="buttonsWalk keyClick">
+                <div class="btnLeft keyClick" id="btnLeft">←</div>
+                    <div class="btnTopBottom keyClick">
+                        <div class="btnTop" id="btnTop">↑</div>
+                        <div class="btnBottom" id="btnBottom">↓</div>
+                    </div>
+
+                    <div class="btnRight keyClick" id="btnRight">→</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.body.onkeyup = function (e){
+            console.log(e.keyCode);
+        
+            if(e.keyCode=== 192){
+                document.getElementById('btnEE').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btnEE').style.transform = 'scale(1, 1)';
+                }, 250);
+            }
+            else if(e.keyCode===49){
+                document.getElementById('btn1').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btn1').style.transform = 'scale(1, 1)';
+                }, 250);
+            }
+            else if(e.keyCode===50){
+                document.getElementById('btn2').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btn2').style.transform = 'scale(1, 1)';
+                }, 250);
+            }
+            else if(e.keyCode===51){
+                document.getElementById('btn3').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btn3').style.transform = 'scale(1, 1)';
+                }, 250);
+            }
+            else if(e.keyCode===52){
+                document.getElementById('btn4').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btn4').style.transform = 'scale(1, 1)';
+                }, 250);
+            }
+            else if(e.keyCode===53){
+                document.getElementById('btn5').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btn5').style.transform = 'scale(1, 1)';
+                }, 250);
+            }
+            else if(e.keyCode===54){
+                document.getElementById('btn6').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btn6').style.transform = 'scale(1, 1)';
+                }, 250);
+            }
+            else if(e.keyCode===55){
+                document.getElementById('btn7').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btn7').style.transform = 'scale(1, 1)';
+                }, 250);
+            }
+            else if(e.keyCode===56){
+                document.getElementById('btn8').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btn8').style.transform = 'scale(1, 1)';
+                }, 250);
+            }
+            else if(e.keyCode===57){
+                document.getElementById('btn9').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btn9').style.transform = 'scale(1, 1)';
+                }, 250);
+            }
+            else if(e.keyCode===48){
+                document.getElementById('btn0').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btn0').style.transform = 'scale(1, 1)';
+                }, 250);
+            }
+            else if(e.keyCode===189){
+                document.getElementById('btnDiff').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btnDiff').style.transform = 'scale(1, 1)';
+                }, 250);
+            }
+            else if(e.keyCode===187){
+                document.getElementById('btnRes').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btnRes').style.transform = 'scale(1, 1)';
+                }, 250);
+            }
+            else if(e.keyCode===8){
+                document.getElementById('btnDelete').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btnDelete').style.transform = 'scale(1, 1)';
+                }, 250);
+            }
+            else if(e.keyCode===9){
+                document.getElementById('btnTab').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btnTab').style.transform = 'scale(1, 1)';
+                }, 250);
+            }
+            else if(e.keyCode===81){
+                document.getElementById('btnQ').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btnQ').style.transform = 'scale(1, 1)';
+                }, 250);
+            }
+            else if(e.keyCode===87){
+                document.getElementById('btnW').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btnW').style.transform = 'scale(1, 1)';
+                }, 250);
+            }
+            else if(e.keyCode===69){
+                document.getElementById('btnE').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btnE').style.transform = 'scale(1, 1)';
+                }, 250);
+            }
+            else if(e.keyCode===82){
+                document.getElementById('btnR').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btnR').style.transform = 'scale(1, 1)';
+                }, 250);
+            }
+            else if(e.keyCode===84){
+                document.getElementById('btnT').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btnT').style.transform = 'scale(1, 1)';
+                }, 250);
+            }
+            else if(e.keyCode===89){
+                document.getElementById('btnY').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btnY').style.transform = 'scale(1, 1)';
+                }, 250);
+            }
+            else if(e.keyCode===85){
+                document.getElementById('btnU').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btnU').style.transform = 'scale(1, 1)';
+                }, 250);
+            }
+            else if(e.keyCode===73){
+                document.getElementById('btnI').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btnI').style.transform = 'scale(1, 1)';
+                }, 250);
+            }
+            else if(e.keyCode===79){
+                document.getElementById('btnO').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btnO').style.transform = 'scale(1, 1)';
+                }, 250);
+            }
+            else if(e.keyCode===80){
+                document.getElementById('btnP').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btnP').style.transform = 'scale(1, 1)';
+                }, 250);
+            }
+            else if(e.keyCode===219){
+                document.getElementById('btnAR').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btnAR').style.transform = 'scale(1, 1)';
+                }, 250);
+            }
+            else if(e.keyCode===221){
+                document.getElementById('btnAR2').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btnAR2').style.transform = 'scale(1, 1)';
+                }, 250);
+            }
+            else if(e.keyCode===73){
+                document.getElementById('btnI').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btnI').style.transform = 'scale(1, 1)';
+                }, 250);
+            }
+            else if(e.keyCode===20){
+                document.getElementById('btnCap').style.transform = 'scale(0.9, 0.9)';
+                document.getElementById('light').style.backgroundColor = 'red';
+                setInterval(() =>{
+                    document.getElementById('btnCap').style.transform = 'scale(1, 1)';
+                    document.getElementById('light').style.backgroundColor = 'white';
+                }, 300);
+            }
+            else if(e.keyCode===65){
+                document.getElementById('btnA').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btnA').style.transform = 'scale(1, 1)';
+                }, 250);
+            }
+            else if(e.keyCode===83){
+                document.getElementById('btnS').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btnS').style.transform = 'scale(1, 1)';
+                }, 250);
+            }
+            else if(e.keyCode===68){
+                document.getElementById('btnD').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btnD').style.transform = 'scale(1, 1)';
+                }, 250);
+            }
+            else if(e.keyCode===70){
+                document.getElementById('btnF').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btnF').style.transform = 'scale(1, 1)';
+                }, 250);
+            }
+            else if(e.keyCode===71){
+                document.getElementById('btnG').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btnG').style.transform = 'scale(1, 1)';
+                }, 250);
+            }
+            else if(e.keyCode===72){
+                document.getElementById('btnH').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btnH').style.transform = 'scale(1, 1)';
+                }, 250);
+            }
+            else if(e.keyCode===74){
+                document.getElementById('btnJ').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btnJ').style.transform = 'scale(1, 1)';
+                }, 250);
+            }
+            else if(e.keyCode===75){
+                document.getElementById('btnK').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btnK').style.transform = 'scale(1, 1)';
+                }, 250);
+            }
+            else if(e.keyCode===76){
+                document.getElementById('btnL').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btnL').style.transform = 'scale(1, 1)';
+                }, 250);
+            }
+            else if(e.keyCode==186){
+                document.getElementById('btnKK').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btnKK').style.transform = 'scale(1, 1)';
+                }, 250);
+            }
+            else if(e.keyCode===222){
+                document.getElementById('btnLL').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btnLL').style.transform = 'scale(1, 1)';
+                }, 250);
+            }
+            else if(e.keyCode===13){
+                document.getElementById('btnEnter').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btnEnter').style.transform = 'scale(1, 1)';
+                }, 250);
+            }
+            else if(e.keyCode===16){
+                document.getElementById('btnShift').style.transform = 'scale(0.9, 0.9)';
+                document.getElementById('btnShift2').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btnShift').style.transform = 'scale(1, 1)';
+                    document.getElementById('btnShift2').style.transform = 'scale(1,1)';
+                }, 250);
+            }
+            else if(e.keyCode===90){
+                document.getElementById('btnZ').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btnZ').style.transform = 'scale(1, 1)';
+                }, 250);
+            }
+            else if(e.keyCode===88){
+                document.getElementById('btnX').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btnX').style.transform = 'scale(1, 1)';
+                }, 250);
+            }
+            else if(e.keyCode===67){
+                document.getElementById('btnC').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btnC').style.transform = 'scale(1, 1)';
+                }, 250);
+            }
+            else if(e.keyCode===86){
+                document.getElementById('btnV').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btnV').style.transform = 'scale(1, 1)';
+                }, 250);
+            }
+            else if(e.keyCode===66){
+                document.getElementById('btnB').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btnB').style.transform = 'scale(1, 1)';
+                }, 250);
+            }
+            else if(e.keyCode===78){
+                document.getElementById('btnN').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btnN').style.transform = 'scale(1, 1)';
+                }, 250);
+            }
+            else if(e.keyCode===77){
+                document.getElementById('btnM').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btnM').style.transform = 'scale(1, 1)';
+                }, 250);
+            }
+            else if(e.keyCode===188){
+                document.getElementById('btnArrow').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btnArrow').style.transform = 'scale(1, 1)';
+                }, 250);
+            }
+            else if(e.keyCode===190){
+                document.getElementById('btnArrow2').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btnArrow2').style.transform = 'scale(1, 1)';
+                }, 250);
+            }
+            else if(e.keyCode===191){
+                document.getElementById('btnSlash').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btnSlash').style.transform = 'scale(1, 1)';
+                }, 250);
+            }
+            else if(e.keyCode===17){
+                document.getElementById('btnCtrl').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btnCtrl').style.transform = 'scale(1, 1)';
+                }, 300);
+            }
+            else if(e.keyCode===18){
+                document.getElementById('btnAlt').style.transform = 'scale(0.9, 0.9)';
+                document.getElementById('btnAlt2').style.transform = 'scale(0.9, 0.9)';
+                document.getElementById('btnCommand').style.transform = 'scale(0.9, 0.9)';
+                document.getElementById('btnCommand2').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btnAlt').style.transform = 'scale(1, 1)';
+                    document.getElementById('btnAlt2').style.transform = 'scale(1, 1)';
+                    document.getElementById('btnCommand').style.transform = 'scale(1, 1)';
+                    document.getElementById('btnCommand2').style.transform = 'scale(1, 1)';
+                }, 250);
+            }
+            else if(e.keyCode===32){
+                document.getElementById('btnSpace').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btnSpace').style.transform = 'scale(1, 1)';
+                }, 250);
+            }
+            else if(e.keyCode===37){
+                document.getElementById('btnLeft').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btnLeft').style.transform = 'scale(1, 1)';
+                }, 250);
+            }
+            else if(e.keyCode===38){
+                document.getElementById('btnTop').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btnTop').style.transform = 'scale(1, 1)';
+                }, 250);
+            }
+            else if(e.keyCode===39){
+                document.getElementById('btnRight').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btnRight').style.transform = 'scale(1, 1)';
+                }, 250);
+            }
+            else if(e.keyCode===40){
+                document.getElementById('btnBottom').style.transform = 'scale(0.9, 0.9)';
+                setInterval(() =>{
+                    document.getElementById('btnBottom').style.transform = 'scale(1, 1)';
+                }, 250);
+            }
+            
+            
+
+            
+
+        }
+       
+    </script>
+</body>
+</html>
